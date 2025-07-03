@@ -1,0 +1,123 @@
+/* Body settings */
+body {
+  margin: 0;
+  padding: 0;
+  background-color:pink;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Center heading */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  color: #444;
+}
+
+/* Flex layout for images and text */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 80px;
+}
+
+/* Image animation */
+.photo {
+  height: 300px;
+  width: 200px;
+  border-radius: 12px;
+  animation: bounce 2s infinite ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Text animation */
+.box h2 {
+  font-size: 30px;
+  color: #0a0104;
+  text-shadow: 0 0 5px #1a1216, 0 0 10px #130d10;
+  animation: glowBounce 2s infinite ease-in-out;
+  margin: 0;
+}
+
+/* Flying emoji heart inside text – static */
+.emoji-heart {
+  animation: none;
+}
+
+/* Floating hearts container */
+.heart-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  z-index: -1;
+}
+
+/* Flying hearts */
+.flying-heart {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.8;
+  animation: floatHeart 5s linear infinite;
+}
+
+/* Different delays */
+.flying-heart:nth-child(1) {
+  left: 10px;
+  animation-delay: 0s;
+}
+.flying-heart:nth-child(2) {
+  left: 40px;
+  animation-delay: 1s;
+}
+.flying-heart:nth-child(3) {
+  left: 20px;
+  animation-delay: 2s;
+}
+.flying-heart:nth-child(4) {
+  left: 60px;
+  animation-delay: 3s;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Text glow + bounce */
+@keyframes glowBounce {
+  0% {
+    transform: translateY(0);
+    text-shadow: 0 0 5px #ff69b4;
+  }
+  50% {
+    transform: translateY(-10px);
+    text-shadow: 0 0 20px #ff1493;
+  }
+  100% {
+    transform: translateY(0);
+    text-shadow: 0 0 5px #ff69b4;
+  }
+}
+
+/* Floating upward hearts */
+@keyframes floatHeart {
+  0% {
+    bottom: 0;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 0;
+    transform: scale(1.5) translateY(-100px);
+  }
+}
